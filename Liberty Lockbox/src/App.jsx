@@ -23,13 +23,13 @@ function App() {
     createUser(credentials.email, credentials.password, credentials.username).then((res) => console.log(res))
   }
 
-  const handleLogIn = () => {
+  /*const handleLogIn = () => {
     signIn(credentials.email, credentials.password).then((res) => console.log(res))
   }
 
   const handleSignOut = () => {
     signOut().then((res) => console.log(res))
-  }
+  }*/
 
   return (/*
     <>

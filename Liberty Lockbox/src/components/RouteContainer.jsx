@@ -1,8 +1,13 @@
 import React from 'react'
+import { signOut } from '../../lib/appwrite'
 
 function RouteContainer() {
+
+  const handleSignOut = () => {
+    signOut().then((res) => console.log(res))
+  }
   return (
-    <div>RouteContainer</div>
+    <button onClick={handleSignOut}>Sign Out</button>
   )
 }
 

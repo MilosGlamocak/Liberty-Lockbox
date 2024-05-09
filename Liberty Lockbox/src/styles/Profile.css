@@ -1,0 +1,37 @@
+.profileCont {
+    background-color: #202020;
+    max-width: 100% !important;
+    height: 100vh;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 10vh 0 0 0 !important;
+    gap: 3rem;
+}
+
+.avatarBig {
+    height: 15rem;
+    width: 15rem;
+    border: 0.5rem solid white;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.userInfoText {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0;
+    padding: 0 !important;
+}
+
+.username {
+    margin-bottom: 0rem;
+}
+
+.email {
+    color: rgba(255, 255, 255, 0.5);
+}

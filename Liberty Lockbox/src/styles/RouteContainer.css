@@ -1,10 +1,40 @@
 .routeCont {
-    background-color: black;
-    max-width: 100% !important;
+    background-color: #16325C;
+    max-width: 25% !important;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: 10vh;
     padding: 0 !important;
     display: flex !important;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
     color: white;
+    border-radius: 0 0 20px 20px;
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 500;
+    transition-duration: 0.3s;
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.link:hover {
+    color: white;
+    opacity: 0.7;
+}
+
+.avatarSmall {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
 }

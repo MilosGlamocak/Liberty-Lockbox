@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import './App.css'
 import { checkForUser, createUser, signIn, signOut } from '../lib/appwrite'
 import { useAuth } from './store'
 import RouteContainer from './components/RouteContainer'

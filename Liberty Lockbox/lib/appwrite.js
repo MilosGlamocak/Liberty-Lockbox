@@ -110,6 +110,8 @@ export const checkForUser = async () => {
         // Set username using useAuth
         useAuth.setState({
             username: user.username,
+            avatar: user.avatar,
+            email: user.email
         });
 }
 

@@ -1,5 +1,5 @@
 .customButton {
-    background-color: #16325C;
+    background-color: black;
     display: flex !important;
     justify-content: center;
     align-items: center;
@@ -7,4 +7,8 @@
     width: 9rem;
     color: white;
     font-size: 1.1rem;
+}
+
+.customButton:hover {
+    color: #747bff;
 }

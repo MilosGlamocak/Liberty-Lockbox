@@ -1,8 +1,12 @@
 import React from 'react'
+import '../styles/Armory.css'
+import {Container} from '@mui/material'
 
 function Armory() {
   return (
-    <div>Armory</div>
+    <Container className='armoryCont'>
+
+    </Container>
   )
 }
 

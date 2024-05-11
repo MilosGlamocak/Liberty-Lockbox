@@ -14,11 +14,13 @@ export const useAuth = create((set) => ({
     username: null,
     avatar: null,
     email: null,
+    label: null,
     setSessionId: (sessionId) => set({ sessionId }),
     setUsername: (username) => set({ username }),
     setAvatar: (avatar) => set({ avatar }),
     setEmail: (email) => set({ email }),
-    clearAuthData: () => set({ sessionId: null, username: null, avatar: null, email: null }),
+    setLabel: (label) => set({ label }),
+    clearAuthData: () => set({ sessionId: null, username: null, avatar: null, email: null, label: null }),
 }));
 
 

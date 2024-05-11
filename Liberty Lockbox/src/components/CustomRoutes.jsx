@@ -16,7 +16,9 @@ function CustomRoutes() {
     let [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        checkForUser().then(() => setLoading(false)) //checks who is logged in, then updates the zustand
+        checkForUser().finally(() => {
+          setLoading(false)
+        })//checks who is logged in, then updates the zustand
       }, [])
 
 

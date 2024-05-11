@@ -9,7 +9,7 @@ import CustomButton from '../components/CustomButton'
 
 function Profile() {
 
-  const {username, avatar, email} = useAuth((state) => state)
+  const {username, avatar, email, label} = useAuth((state) => state)
   let navigate = useNavigate()
 
   const handleSignOut = () => {
@@ -24,6 +24,7 @@ function Profile() {
       <Container className='userInfoText'>
         <h1 className='username'>{username}</h1>
         <h2 className='email'>{email}</h2>
+        <h3 className='label'>({label})</h3>
       </Container>
       
       <CustomButton onClick={handleSignOut} text='Sign Out'/>

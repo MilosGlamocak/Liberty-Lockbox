@@ -107,11 +107,14 @@ export const getCurrentUser = async () => {
 
 export const checkForUser = async () => {
     const user = await getCurrentUser();
+    const accountGet = await account.get()
         // Set username using useAuth
         useAuth.setState({
             username: user.username,
             avatar: user.avatar,
-            email: user.email
+            email: user.email,
+            label: accountGet.labels[0]
         });
+        return accountGet
 }
 

@@ -8,9 +8,6 @@ import ItemCreation from '../components/ItemCreation'
 function Armory() {
 
   let [items, setItems] = useState([])
-
-  
-
   useEffect(() => { 
     getAllItems().then((res) => {
       setItems(res.documents);
@@ -22,10 +19,7 @@ function Armory() {
   return (
     <Container className='armoryCont'>
       {label === 'admin' && (
-        <>
-        <h2>Admin</h2>
         <ItemCreation />
-        </>
       
       )}
       <Container className='itemsCont'>

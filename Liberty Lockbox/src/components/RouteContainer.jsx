@@ -18,13 +18,22 @@ function RouteContainer() {
   return (
     <>
       <Container className='routeCont'>
-        <Link to='/' className='link'><h3>Armory</h3></Link>
-        <Link to='profile' className='link'>
-          <img src={avatar} className='avatarSmall'></img>
-          <h3>{username}</h3>
-        </Link>
+          <Container className='logoCont'>
+            <h1 className='logo'>Liberty Lockbox</h1>
+            <p>Fueled by passion, driven by purpose</p>
+          </Container>
+          
+          <Container className='linkCont'>
+          <Link to='/' className='link'><h3>Armory</h3></Link>
+          <Link to='profile' className='link'>
+            <img src={avatar} className='avatarSmall'></img>
+            <h3>{username}</h3>
+          </Link>
+        </Container>
+        
+        <Outlet />
       </Container>
-      <Outlet />
+      
     </>
     
    

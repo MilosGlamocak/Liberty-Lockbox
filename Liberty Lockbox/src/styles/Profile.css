@@ -1,5 +1,5 @@
 .profileCont {
-    background-color: #202020;
+    background-color: black;
     max-width: 100% !important;
     height: 100vh;
     display: flex !important;
@@ -16,7 +16,7 @@
     width: 15rem;
     border: 0.3rem solid #747bff;
     background-color: white;
-    border-radius: 20px;
+    border-radius: 50%;
 }
 
 .userInfoText {

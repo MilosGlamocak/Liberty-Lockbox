@@ -34,8 +34,8 @@ function CustomRoutes() {
           </>  /*checks if user is logged in, if not, only signup and signin is available */ 
           ) : (
           <Route path='/' element={<RouteContainer/>}>
-          <Route path='/' element={<Armory />}/>
-          <Route path='profile' index element={<Profile/>}/>
+            <Route path='/' element={<Armory />}/>
+            <Route path='profile' index element={<Profile/>}/>
           </Route>
           )}
       </Routes>

@@ -1,21 +1,14 @@
 .routeCont {
     background-color: black;
-    max-width: 25% !important;
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
-    height: 10vh;
+    max-width: 100% !important;
+    height: 100%;
     padding: 0 !important;
     display: flex !important;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
     color: white;
-    border-radius: 0 0 20px 20px;
-    -webkit-box-shadow: 0px 4px 21px -11px rgba(116,123,255,1);
-    -moz-box-shadow: 0px 4px 21px -11px rgba(116,123,255,1);
-    box-shadow: 0px 4px 21px -11px rgba(116,123,255,1);
+    overflow: visible !important;
 }
 
 .link {
@@ -40,4 +33,33 @@
     height: 3rem;
     width: 3rem;
     border-radius: 50%;
+}
+
+.linkCont {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    max-width: 30vw !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    padding: 2rem !important;
+}
+
+.logoCont {
+    position: fixed;
+    left: 0;
+    top: 10%;
+    transform: translate(0, -50%);
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    padding: 0 0 0 2rem !important;
+}
+
+.logo {
+    margin-bottom: 0rem;
 }

@@ -17,7 +17,7 @@ function CustomRoutes() {
 
     useEffect(() => {
         checkForUser().finally(() => {
-          setLoading(false)
+          setLoading(false);
         })//checks who is logged in, then updates the zustand
       }, [])
 

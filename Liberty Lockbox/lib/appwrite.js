@@ -118,3 +118,37 @@ export const checkForUser = async () => {
         return accountGet
 }
 
+
+export const getAllItems = async () => {
+    try {
+        const currentItems = await databases.listDocuments(
+            databaseId,
+            itemCollectionId,
+            [Query.select([])]
+        )
+
+        if (!currentItems) throw Error;
+
+        return currentItems;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+export const createNewItem = async (name, image, price, chamber, quantity) => {
+    const newItem = await databases.createDocument(
+        databaseId,
+        itemCollectionId, 
+        ID.unique(),
+        {
+            name,
+            image,
+            price,
+            chamber,
+            quantity,
+        }
+    )
+
+    return newItem;
+}

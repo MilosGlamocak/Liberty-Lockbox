@@ -1,14 +1,19 @@
 .customButton {
-    background-color: black;
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    height: 3rem;
-    width: 9rem;
+    background-color: #141414;
+    border: 1px solid #343434 !important;
+    border-radius: 10px;
+    height: 2.5rem;
+    width: 8rem;
     color: white;
-    font-size: 1.1rem;
+    font-weight: 400;
+    font-size: 1.0rem;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
 }
 
 .customButton:hover {
-    color: #747bff;
+    background-color: #242424;
+    cursor: pointer;
 }

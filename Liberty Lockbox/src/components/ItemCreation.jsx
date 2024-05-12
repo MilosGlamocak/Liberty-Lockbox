@@ -3,6 +3,7 @@ import React from 'react'
 import '../styles/ItemCreation.css'
 import { useState } from 'react'
 import { createNewItem } from '../../lib/appwrite'
+import CustomButton from '../components/CustomButton'
 
 function ItemCreation() {
 
@@ -48,7 +49,7 @@ function ItemCreation() {
         {inputFields.map((item) => {
             return <input type={item.type} id={item.id} placeholder={item.placeholder} key={item.id} onChange={handleUpdateItemCred}/>
         })}
-        <button onClick={handleCreateNewItem}>Publish item</button>
+        <CustomButton onClick={handleCreateNewItem} text='Publish Item'/>
     </Container>
   )
 }

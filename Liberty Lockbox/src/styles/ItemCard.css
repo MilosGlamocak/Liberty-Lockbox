@@ -1,0 +1,56 @@
+.itemCardCont {
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 100% !important;
+    height: 15rem;
+    padding: 0 !important;
+    margin: 5rem;
+}
+
+.itemImg {
+    width: 13rem;
+}
+
+.cardContLeft {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    max-width: 50% !important;
+    padding: 0 !important;
+    gap: 2rem;
+}
+
+.cardTextLeft {
+    display: flex !important;
+    align-items: baseline;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 70% !important;
+    padding: 0 0 3rem 0 !important;
+}
+
+.cardName {
+    margin-bottom: -1rem;
+}
+
+.cardInfo {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: -2.5rem !important;
+}
+
+.cardContRight {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+}

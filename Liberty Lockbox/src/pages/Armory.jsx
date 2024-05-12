@@ -4,6 +4,7 @@ import {Container} from '@mui/material'
 import {useAuth} from '../store'
 import { getAllItems, createNewItem, } from '../../lib/appwrite'
 import ItemCreation from '../components/ItemCreation'
+import ItemCard from '../components/ItemCard'
 
 function Armory() {
 
@@ -24,16 +25,7 @@ function Armory() {
       )}
       <Container className='itemsCont'>
         {items.reverse().map((item) => {
-          return <Container key={item.name} style={{display: 'flex', flexDirection: 'row', maxWidth: '60%', justifyContent: 'center', alignItems: 'center'}}>
-            <img src={item.image} style={{width: '300px'}}/>
-            <Container>
-              <h2>{item.name}</h2>
-              <h5>{item.chamber}</h5>
-              <h3>${item.price}</h3>
-              <h4>Units left: {item.quantity}</h4>
-            </Container>
-           
-          </Container>
+          return <ItemCard name={item.name} chamber={item.chamber} image={item.image} price={item.price} quantity={item.quantity} key={item.name}/>
         })}
       </Container>
     </Container>

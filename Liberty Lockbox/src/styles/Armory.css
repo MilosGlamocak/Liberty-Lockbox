@@ -1,6 +1,6 @@
 .armoryCont {
     background-color: #202020;
-    padding: 8vh;
-    height: 100vh;
+    padding: 8vh 0 0 0 !important;
+    min-height: 100vh;
     max-width: 100% !important;
 }

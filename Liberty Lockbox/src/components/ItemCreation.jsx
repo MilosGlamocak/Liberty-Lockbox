@@ -4,8 +4,11 @@ import '../styles/ItemCreation.css'
 import { useState } from 'react'
 import { createNewItem } from '../../lib/appwrite'
 import CustomButton from '../components/CustomButton'
+import { useAuth } from '../store'
 
 function ItemCreation() {
+
+  const {userId} = useAuth((state) => state)
 
     let [itemCred, setItemCred] = useState({
         name: '',
@@ -17,9 +20,7 @@ function ItemCreation() {
 
     const handleUpdateItemCred = (e) => {
         const { id, value } = e.target;
-        setItemCred({...itemCred, [id]: value});
-        console.log(itemCred);
-        
+        setItemCred({...itemCred, [id]: value}); 
     }
 
     const handleCreateNewItem = async () => {
@@ -28,7 +29,8 @@ function ItemCreation() {
           itemCred.image,
           parseFloat(itemCred.price),
           itemCred.chamber,
-          parseInt(itemCred.quantity)
+          parseInt(itemCred.quantity),
+          userId
         ).then(() => {
             window.location.reload();
         })

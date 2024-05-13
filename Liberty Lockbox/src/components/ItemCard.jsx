@@ -2,8 +2,13 @@ import React from 'react'
 import '../styles/ItemCard.css'
 import { Container } from '@mui/material'
 import CustomButton from './CustomButton'
+import { useAuth } from '../store'
+import { deleteItem } from '../../lib/appwrite'
 
-function ItemCard({name, chamber, price, quantity, image}) {
+function ItemCard({name, chamber, price, quantity, image, itemId}) {
+
+const {label} = useAuth((state) => state)
+
   return (
     <Container className='itemCardCont'>
         <Container className='cardContLeft'>
@@ -15,7 +20,14 @@ function ItemCard({name, chamber, price, quantity, image}) {
                 <Container className='cardInfoCont'><p className='cardInfo'>In Stock: </p><p className='cardInfoBold'>{quantity}</p></Container> 
             </Container>
         </Container> 
-        <Container className='cardContRight'> 
+        <Container className='cardContRight'>
+            {label === 'admin' && (
+              <>
+              <CustomButton text='Remove Item' border='none' backgroundColor='#520909' onClick={() => 
+                deleteItem(itemId).then(() => window.location.reload())}/>
+              <p>{itemId}</p>
+              </>      
+            )}
             <p>Units: 1</p>
             <CustomButton text='Add to Cart' border='1px solid #365F22'/>
         </Container>

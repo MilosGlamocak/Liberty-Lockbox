@@ -9,13 +9,14 @@ import ItemCard from '../components/ItemCard'
 function Armory() {
 
   let [items, setItems] = useState([])
-  useEffect(() => { 
+
+  useEffect(() => {
     getAllItems().then((res) => {
       setItems(res.documents);
     })
   }, [])
 
-  const {label, username} = useAuth((state) => state)
+  const {label} = useAuth((state) => state)
   
   return (
     <Container className='armoryCont'>
@@ -25,7 +26,7 @@ function Armory() {
       )}
       <Container className='itemsCont'>
         {items.reverse().map((item) => {
-          return <ItemCard name={item.name} chamber={item.chamber} image={item.image} price={item.price} quantity={item.quantity} key={item.name}/>
+          return <ItemCard name={item.name} chamber={item.chamber} image={item.image} price={item.price} quantity={item.quantity} key={item.name} itemId={item.$id}/>
         })}
       </Container>
     </Container>

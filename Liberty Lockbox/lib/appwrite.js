@@ -113,7 +113,8 @@ export const checkForUser = async () => {
             username: user.username,
             avatar: user.avatar,
             email: user.email,
-            label: accountGet.labels[0]
+            label: accountGet.labels[0],
+            userId: user.$id
         });
         return accountGet
 }
@@ -124,19 +125,30 @@ export const getAllItems = async () => {
         const currentItems = await databases.listDocuments(
             databaseId,
             itemCollectionId,
-            [Query.select([])]
+            []
         )
-
         if (!currentItems) throw Error;
-
         return currentItems;
     } catch (error) {
         console.log(error)
     }
 }
 
+export const deleteItem = async (itemId) => {
+    try {
+        const item = await databases.deleteDocument(
+            databaseId,
+            itemCollectionId,
+            itemId
+        )
+        return item
 
-export const createNewItem = async (name, image, price, chamber, quantity) => {
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const createNewItem = async (name, image, price, chamber, quantity, userId) => {
     const newItem = await databases.createDocument(
         databaseId,
         itemCollectionId, 
@@ -147,6 +159,7 @@ export const createNewItem = async (name, image, price, chamber, quantity) => {
             price,
             chamber,
             quantity,
+            users: userId
         }
     )
 

@@ -17,7 +17,7 @@ function ItemCard({name, chamber, price, quantity, image}) {
         </Container> 
         <Container className='cardContRight'> 
             <p>Units: 1</p>
-            <CustomButton text='Add to Cart'/>
+            <CustomButton text='Add to Cart' border='1px solid #365F22'/>
         </Container>
     </Container>
   )

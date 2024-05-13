@@ -25,7 +25,6 @@ const {label} = useAuth((state) => state)
               <>
               <CustomButton text='Remove Item' border='none' backgroundColor='#520909' onClick={() => 
                 deleteItem(itemId).then(() => window.location.reload())}/>
-              <p>{itemId}</p>
               </>      
             )}
             <p>Units: 1</p>

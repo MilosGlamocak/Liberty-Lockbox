@@ -24,7 +24,7 @@ const {label} = useAuth((state) => state)
         <Container className='cardContRight'>
             {label === 'admin' && (
               <>
-              <CustomButton text='Remove Item' border='none' backgroundColor='#520909' onClick={() => 
+              <CustomButton text='Remove Item' border='1px solid #520909' onClick={() => 
                 deleteItem(itemId).then(() => window.location.reload())}/>
               </>      
             )}

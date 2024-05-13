@@ -148,7 +148,7 @@ export const deleteItem = async (itemId) => {
     }
 }
 
-export const createNewItem = async (name, image, price, chamber, quantity, userId) => {
+export const createNewItem = async (name, image, price, chamber, quantity, userId, category) => {
     const newItem = await databases.createDocument(
         databaseId,
         itemCollectionId, 
@@ -159,7 +159,8 @@ export const createNewItem = async (name, image, price, chamber, quantity, userI
             price,
             chamber,
             quantity,
-            users: userId
+            users: userId, 
+            category
         }
     )
 

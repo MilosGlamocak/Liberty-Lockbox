@@ -20,10 +20,6 @@ function Armory() {
   
   return (
     <Container className='armoryCont'>
-      {label === 'admin' && (
-        <ItemCreation />
-      
-      )}
       <Container className='itemsCont'>
         {items.reverse().map((item) => {
           return <ItemCard name={item.name} chamber={item.chamber} image={item.image} price={item.price} quantity={item.quantity} key={item.name} itemId={item.$id} publisher={item.users.username}/>

@@ -9,6 +9,7 @@ import SignUp from '../(auth)/SignUp';
 import React from 'react'
 import SignIn from '../(auth)/SignIn';
 import RouteContainer from './RouteContainer';
+import ItemCreation from './ItemCreation';
 
 function CustomRoutes() {
 
@@ -36,6 +37,7 @@ function CustomRoutes() {
           <Route path='/' element={<RouteContainer/>}>
             <Route path='/' element={<Armory />}/>
             <Route path='profile' index element={<Profile/>}/>
+            <Route path='itemCreation' index element={<ItemCreation/>}/>
           </Route>
           )}
       </Routes>

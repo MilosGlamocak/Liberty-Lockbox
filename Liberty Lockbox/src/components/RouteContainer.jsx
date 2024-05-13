@@ -9,6 +9,7 @@ function RouteContainer() {
 
   const username = useAuth((state) => state.username)
   const avatar = useAuth((state) => state.avatar)
+  const label = useAuth((state) => state.label)
   /*let navigate = useNavigate()
 
   const handleSignOut = () => {
@@ -25,6 +26,7 @@ function RouteContainer() {
           
           <Container className='linkCont'>
           <Link to='/' className='link'><h3>Armory</h3></Link>
+          { label === 'admin' &&  (<Link to='itemCreation' className='link'><h3>Create Item</h3></Link>)}
           <Link to='profile' className='link'>
             <img src={avatar} className='avatarSmall'></img>
             <h3>{username}</h3>

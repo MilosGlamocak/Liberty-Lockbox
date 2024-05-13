@@ -2,6 +2,10 @@ import React from 'react'
 import { signIn } from '../../lib/appwrite'
 import { useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
+import { Container } from '@mui/material'
+import '../styles/SignIn.css'
+import CustomButton from '../components/CustomButton'
+import CustomInput from '../components/CustomInput'
 
 function SignIn() {
 
@@ -16,13 +20,24 @@ function SignIn() {
     signIn(credentials.email, credentials.password).then((res) => console.log(res))
   }
   return (
-    <div>
-      <input placeholder='email' id='email' onChange={handleSetCredentials}/>
-      <input placeholder='password' id='password' onChange={handleSetCredentials} type='password'/>
-      <button onClick={handleLogIn}>Log In</button>
-      <Link to='signup'>Create new Account</Link>
+    <Container className='signInCont'>
+      <Container className='signInHeader'>
+        <h3 className='headerSmall'>Welcome back to</h3>
+        <h1 className='headerBig'>Liberty Lockbox</h1>
+      </Container>
+      <Container className='inputCont'>
+        <CustomInput placeholder='Email' id='email' onChange={handleSetCredentials}/>
+        <CustomInput placeholder='Password' id='password' onChange={handleSetCredentials} type='password'/>
+      </Container>
+      
+      <CustomButton onClick={handleLogIn} text='Log In'/>
+      <Container className='signUpLinkCont'>
+        <p className='signUpQuestion'>New here?</p>
+        <Link to='signup' className='signUpLink'>Create new Account</Link>
+      </Container>
+      
       <Outlet />
-    </div>
+    </Container>
   )
 }
 

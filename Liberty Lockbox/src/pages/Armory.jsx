@@ -21,7 +21,7 @@ function Armory() {
   return (
     <Container className='armoryCont'>
       <Container className='itemsCont'>
-        { items.length > 0 ? items.reverse().map((item) => {
+        { items.length > 0 ? items.map((item) => {
           return <ItemCard name={item.name} chamber={item.chamber} image={item.image} price={item.price} quantity={item.quantity} key={item.name} itemId={item.$id} publisher={item.users.username}/>
         })  : (<LoadingAnimation />)}
         

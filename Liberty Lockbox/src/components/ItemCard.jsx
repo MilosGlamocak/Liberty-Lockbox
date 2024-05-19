@@ -1,11 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../styles/ItemCard.css'
-import { Container } from '@mui/material'
+import { CircularProgress, Container } from '@mui/material'
 import CustomButton from './CustomButton'
 import { useAuth } from '../store'
 import { deleteItem, getAllItems } from '../../lib/appwrite'
+import LoadingAnimation from './LoadingAnimation'
 
 function ItemCard({name, chamber, price, quantity, image, itemId, publisher}) {
+
+  const [loading, setLoading] = useState(false)
+
+  const handleDeleteItem = () => {
+    
+    setLoading(true)
+    deleteItem(itemId).then(() => {
+      getAllItems().then(() => setLoading(false))
+    })
+  }
 
 const {label} = useAuth((state) => state)
 
@@ -24,8 +35,7 @@ const {label} = useAuth((state) => state)
         <Container className='cardContRight'>
             {label === 'admin' && (
               <>
-              <CustomButton text='Remove Item' border='1px solid #520909' onClick={() => 
-                deleteItem(itemId).then(() => getAllItems())}/>
+              <CustomButton text={loading ? <CircularProgress style={{color: 'white', scale: '0.5'}} /> : 'Delete item'} border='1px solid #520909' onClick={handleDeleteItem}/>
               </>      
             )}
             <p>Units: 1</p>

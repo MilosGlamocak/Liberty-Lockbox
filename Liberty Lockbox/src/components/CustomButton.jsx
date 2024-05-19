@@ -16,7 +16,6 @@ function CustomButton({width, height, text, onClick, border, color, backgroundCo
 CustomButton.propTypes = {
     width: PropTypes.string,
     height: PropTypes.string,
-    text: PropTypes.string.isRequired,
     onClick: PropTypes.func,
     border: PropTypes.string,
     color: PropTypes.string,

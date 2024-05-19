@@ -130,7 +130,7 @@ export const getAllItems = async () => {
         if (!currentItems) throw Error;
         
         useItems.setState({
-            items: [...currentItems.documents]
+            items: [...currentItems.documents.reverse()]
         })
         return currentItems;
     } catch (error) {

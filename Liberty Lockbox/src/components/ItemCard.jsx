@@ -3,7 +3,7 @@ import '../styles/ItemCard.css'
 import { Container } from '@mui/material'
 import CustomButton from './CustomButton'
 import { useAuth } from '../store'
-import { deleteItem } from '../../lib/appwrite'
+import { deleteItem, getAllItems } from '../../lib/appwrite'
 
 function ItemCard({name, chamber, price, quantity, image, itemId, publisher}) {
 
@@ -25,7 +25,7 @@ const {label} = useAuth((state) => state)
             {label === 'admin' && (
               <>
               <CustomButton text='Remove Item' border='1px solid #520909' onClick={() => 
-                deleteItem(itemId).then(() => window.location.reload())}/>
+                deleteItem(itemId).then(() => getAllItems())}/>
               </>      
             )}
             <p>Units: 1</p>

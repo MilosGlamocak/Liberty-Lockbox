@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import '../styles/Armory.css'
 import {Container} from '@mui/material'
-import {useAuth} from '../store'
+import {useAuth, useItems} from '../store'
 import { getAllItems, createNewItem, } from '../../lib/appwrite'
-import ItemCreation from '../components/ItemCreation'
 import ItemCard from '../components/ItemCard'
+import LoadingAnimation from '../components/LoadingAnimation'
 
 function Armory() {
 
-  let [items, setItems] = useState([])
+  /*let [items, setItems] = useState([])*/
+
+  let items = useItems((state) => state.items)
 
   useEffect(() => {
-    getAllItems().then((res) => {
-      setItems(res.documents);
-    })
+    getAllItems()
   }, [])
 
   const {label} = useAuth((state) => state)
@@ -21,10 +21,12 @@ function Armory() {
   return (
     <Container className='armoryCont'>
       <Container className='itemsCont'>
-        {items.reverse().map((item) => {
+        { items.length > 0 ? items.reverse().map((item) => {
           return <ItemCard name={item.name} chamber={item.chamber} image={item.image} price={item.price} quantity={item.quantity} key={item.name} itemId={item.$id} publisher={item.users.username}/>
-        })}
+        })  : (<LoadingAnimation />)}
+        
       </Container>
+      
     </Container>
   )
 }

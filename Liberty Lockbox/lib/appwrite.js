@@ -1,5 +1,5 @@
 import {Account, Avatars, Databases, ID, Client, Query} from 'appwrite';
-import { useAuth } from '../src/store';
+import { useAuth, useItems } from '../src/store';
 
 
 
@@ -128,6 +128,10 @@ export const getAllItems = async () => {
             []
         )
         if (!currentItems) throw Error;
+        
+        useItems.setState({
+            items: [...currentItems.documents]
+        })
         return currentItems;
     } catch (error) {
         console.log(error)

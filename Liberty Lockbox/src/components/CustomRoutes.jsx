@@ -10,6 +10,7 @@ import React from 'react'
 import SignIn from '../(auth)/SignIn';
 import RouteContainer from './RouteContainer';
 import ItemCreation from './ItemCreation';
+import LoadingAnimation from './LoadingAnimation';
 
 function CustomRoutes() {
 
@@ -43,7 +44,7 @@ function CustomRoutes() {
       </Routes>
       
       </BrowserRouter>
-      {loading && <h2>Loading...</h2>}
+      {loading && <LoadingAnimation />}
     </>
 
   )

@@ -26,7 +26,7 @@ function CustomRoutes() {
 
   return (
     <>
-      <BrowserRouter >
+      <BrowserRouter basename="/Liberty-Lockbox" >
       <Routes>
 
           {!username ? (

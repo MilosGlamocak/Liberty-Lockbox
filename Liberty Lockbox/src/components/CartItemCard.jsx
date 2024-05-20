@@ -36,11 +36,7 @@ const units = 15
             </Container>
         </Container> 
         <Container className='cardContRight'>
-            {label === 'admin' && (
-              <>
               <CustomButton text={loading ? <CircularProgress style={{color: 'white', scale: '0.5'}} /> : 'Remove'} border='1px solid #520909' onClick={handleDeleteItem}/>
-              </>      
-            )}
             <p>Units: {units}</p>
             <CustomButton text='Proceed to Checkout' border='1px solid #365F22' backgroundColor='#365F22' height='3rem' onClick={handleAddItem}/>
         </Container>

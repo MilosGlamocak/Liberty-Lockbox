@@ -16,13 +16,10 @@ function CartItemCard({name, chamber, price, quantity, image, itemId, publisher}
      deleteCartItem(itemId)
   }
 
-  const handleAddItem = () => {
-    
-};
 
 const {label} = useAuth((state) => state)
 
-const units = 15
+const units = 1
 
   return (
     <Container className='itemCardCont'>
@@ -36,9 +33,10 @@ const units = 15
             </Container>
         </Container> 
         <Container className='cardContRight'>
+              <p>Units: {units}</p>
               <CustomButton text={loading ? <CircularProgress style={{color: 'white', scale: '0.5'}} /> : 'Remove'} border='1px solid #520909' onClick={handleDeleteItem}/>
-            <p>Units: {units}</p>
-            <CustomButton text='Proceed to Checkout' border='1px solid #365F22' backgroundColor='#365F22' height='3rem' onClick={handleAddItem}/>
+            
+            
         </Container>
     </Container>
   )

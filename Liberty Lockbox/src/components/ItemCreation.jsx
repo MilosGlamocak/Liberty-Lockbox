@@ -45,7 +45,14 @@ function ItemCreation() {
           parseInt(itemCred.quantity),
           userId,
           itemCred.category
-        ).catch((error) => console.error(error)).finally(() => setLoading(false))
+        ).then(() => setItemCred({
+          name: '',
+        image: '',
+        price: '',
+        chamber: '',
+        quantity: '',
+        category: 'Rifles'
+        })).catch((error) => console.error(error)).finally(() => setLoading(false))
       }
 
       const handleCategoryChange = (e) => {
@@ -54,11 +61,11 @@ function ItemCreation() {
     };
 
       const inputFields = [
-        {type: 'text', id: 'name', placeholder: 'name'},
-        {type: 'url', id: 'image', placeholder: 'image'},
-        {type: 'number', id: 'price', placeholder: 'price'},
-        {type: 'text', id: 'chamber', placeholder: 'chamber'},
-        {type: 'number', id: 'quantity', placeholder: 'quantity'},
+        {type: 'text', id: 'name', placeholder: 'Name', value: itemCred.name},
+        {type: 'url', id: 'image', placeholder: 'Image', value: itemCred.image},
+        {type: 'number', id: 'price', placeholder: 'Price', value: itemCred.price},
+        {type: 'text', id: 'chamber', placeholder: 'Chamber', value: itemCred.chamber},
+        {type: 'number', id: 'quantity', placeholder: 'Quantity', value: itemCred.quantity},
       ]
 
       const categories = ['Rifles', 'Shotguns', 'Handguns', 'Submachine guns', 'Machine guns', 'Explosive devices'];
@@ -68,7 +75,7 @@ function ItemCreation() {
     <Container className='itemCreationCont'>
         <h2>Create new item</h2>
         {inputFields.map((item) => {
-            return  <CustomInput type={item.type} id={item.id} placeholder={item.placeholder} key={item.id} onChange={handleUpdateItemCred}/>
+            return  <CustomInput type={item.type} id={item.id} placeholder={item.placeholder} key={item.id} onChange={handleUpdateItemCred} value={item.value}/>
                
         })}
       <Box sx={{ minWidth: 120 }}>

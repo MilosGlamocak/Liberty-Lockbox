@@ -22,7 +22,8 @@ export const useAuth = create((set) => ({
 
 export const useItems = create((set) => ({
     items: [],
-    clearItemsData: () => set({ items: [] }),
+    cartItems: [],
+    clearCartItems: () => set({ cartItems: [] }),
 }));
 
 

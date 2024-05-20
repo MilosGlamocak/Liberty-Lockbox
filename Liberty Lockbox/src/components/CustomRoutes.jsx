@@ -11,6 +11,7 @@ import SignIn from '../(auth)/SignIn';
 import RouteContainer from './RouteContainer';
 import ItemCreation from './ItemCreation';
 import LoadingAnimation from './LoadingAnimation';
+import Cart from '../pages/Cart';
 
 function CustomRoutes() {
 
@@ -36,9 +37,10 @@ function CustomRoutes() {
           </>  /*checks if user is logged in, if not, only signup and signin is available */ 
           ) : (
           <Route path='/' element={<RouteContainer/>}>
-            <Route path='/' element={<Armory />}/>
-            <Route path='profile' index element={<Profile/>}/>
-            <Route path='itemCreation' index element={<ItemCreation/>}/>
+            <Route path='armory' index element={<Armory />}/>
+            <Route path='profile' element={<Profile/>}/>
+            <Route path='itemCreation' element={<ItemCreation/>}/>
+            <Route path='cart' element={<Cart/>}/>
           </Route>
           )}
       </Routes>

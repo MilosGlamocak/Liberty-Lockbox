@@ -16,7 +16,7 @@ function Cart() {
     <Container className='cartCont'>
         <Container className='itemsCont'>
         {cartItems.length > 0 ? cartItems.map((item) => {
-            return <CartItemCard image={item.image} name={item.name} price={item.price} key={item.itemId}/>
+            return <CartItemCard image={item.image} name={item.name} price={item.price} key={item.itemId} itemId={item.itemId}/>
         }) : (<h3>No items in cart</h3>)}
         </Container>
     </Container>

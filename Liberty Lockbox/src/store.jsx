@@ -36,6 +36,13 @@ export const useItems = create((set) => ({
             return { cartItems: [] };
         });
     },
+    deleteCartItem: (itemId) => {
+        set((state) => {
+            const updatedCartItems = state.cartItems.filter((item) => item.itemId !== itemId);
+            localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+            return { cartItems: updatedCartItems };
+        })
+    },
 }));
 
 

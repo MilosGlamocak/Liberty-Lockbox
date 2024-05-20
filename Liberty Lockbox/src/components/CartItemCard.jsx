@@ -3,17 +3,17 @@ import '../styles/ItemCard.css'
 import { CircularProgress, Container } from '@mui/material'
 import CustomButton from './CustomButton'
 import { useAuth, useItems } from '../store'
-import { deleteItem, getAllItems } from '../../lib/appwrite'
 import LoadingAnimation from './LoadingAnimation'
 
 function CartItemCard({name, chamber, price, quantity, image, itemId, publisher}) {
 
-  const { cartItems, addCartItem, clearCartItems } = useItems();
+  const { cartItems, addCartItem, clearCartItems, deleteCartItem } = useItems();
 
   const [loading, setLoading] = useState(false)
 
   const handleDeleteItem = () => {
-     
+    console.log(itemId)
+     deleteCartItem(itemId)
   }
 
   const handleAddItem = () => {

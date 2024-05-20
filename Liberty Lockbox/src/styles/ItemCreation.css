@@ -1,6 +1,6 @@
 .itemCreationCont {
     background-color: black;
-    max-width: 100% !important;
+    max-width: 70% !important;
     height: 100vh;  
     color: white;
     display: flex !important;
@@ -8,6 +8,7 @@
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
+    margin-right: 0 !important;
 }
 
 .inputLabelSelect {

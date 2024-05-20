@@ -1,4 +1,4 @@
-import { Container } from '@mui/material'
+import { Container, CircularProgress } from '@mui/material'
 import React from 'react'
 import '../styles/ItemCreation.css'
 import { useState } from 'react'
@@ -17,6 +17,8 @@ import Select from '@mui/material/Select';
 
 function ItemCreation() {
 
+  const [loading, setLoading] = useState(false)
+
   const {userId} = useAuth((state) => state)
 
     let [itemCred, setItemCred] = useState({
@@ -34,6 +36,7 @@ function ItemCreation() {
     }
 
     const handleCreateNewItem = async () => {
+      setLoading(true)
         createNewItem(
           itemCred.name,
           itemCred.image,
@@ -42,8 +45,7 @@ function ItemCreation() {
           parseInt(itemCred.quantity),
           userId,
           itemCred.category
-        )
-       
+        ).catch((error) => console.error(error)).finally(() => setLoading(false))
       }
 
       const handleCategoryChange = (e) => {
@@ -133,7 +135,7 @@ function ItemCreation() {
 </Box>
 
 
-        <CustomButton onClick={handleCreateNewItem} text='Publish Item'/>
+        <CustomButton onClick={handleCreateNewItem} text={loading ? <CircularProgress style={{color: 'white', scale: '0.5'}} /> : 'Publish Item'}/>
     </Container>
   )
 }

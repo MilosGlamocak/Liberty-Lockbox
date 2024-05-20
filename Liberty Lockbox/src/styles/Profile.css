@@ -1,6 +1,6 @@
 .profileCont {
     background-color: black;
-    max-width: 100% !important;
+    max-width: 70% !important;
     height: 100vh;
     display: flex !important;
     flex-direction: column;
@@ -9,6 +9,7 @@
     color: white;
     padding: 0 !important;
     gap: 3rem;
+    margin-right: 0 !important;
 }
 
 .avatarBig {

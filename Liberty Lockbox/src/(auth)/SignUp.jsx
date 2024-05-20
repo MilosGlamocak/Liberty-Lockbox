@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { createUser } from '../../lib/appwrite';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
-import { Container } from '@mui/material';
+import { Container, CircularProgress } from '@mui/material';
 import CustomInput from '../components/CustomInput';
 import CustomButton from '../components/CustomButton';
 
@@ -11,15 +11,19 @@ function SignUp() {
 
   const [credentials, setCredentials] = useState({email: '', password: '', username:''})
 
+  const [loading, setLoading] = useState(false);
+
   const handleSetCredentials = (e) => {
     const { id, value } = e.target;
     setCredentials({...credentials, [id]: value});
   }
 
   const handleSignUp = () => {
+    setLoading(true)
     createUser(credentials.email, credentials.password, credentials.username).then((res) => {
-      console.log(res);
       navigate(-1)
+    }).catch((error) => console.error(error)).finally(() => {
+      setLoading(false)
     })
   }
   return (
@@ -34,7 +38,7 @@ function SignUp() {
       <CustomInput placeholder='Password' id='password' onChange={handleSetCredentials} type='password'/>
     </Container>
     
-    <CustomButton onClick={handleSignUp} text='Create an Account' width='10rem'/>
+    <CustomButton onClick={handleSignUp} text={loading ? <CircularProgress style={{color: 'white', scale: '0.5'}} /> : 'Create an Account'} width='10rem'/>
     <Container className='signUpLinkCont'>
       <p className='signUpQuestion'>Already have an Account?</p>
       <Link to='/' className='signUpLink'>Sign In</Link>

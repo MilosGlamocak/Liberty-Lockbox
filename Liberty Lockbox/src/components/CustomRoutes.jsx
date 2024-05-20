@@ -37,7 +37,7 @@ function CustomRoutes() {
           </>  /*checks if user is logged in, if not, only signup and signin is available */ 
           ) : (
           <Route path='/' element={<RouteContainer/>}>
-            <Route path='armory' index element={<Armory />}/>
+            <Route path='/' index element={<Armory />}/>
             <Route path='profile' element={<Profile/>}/>
             <Route path='itemCreation' element={<ItemCreation/>}/>
             <Route path='cart' element={<Cart/>}/>

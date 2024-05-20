@@ -25,7 +25,7 @@ function RouteContainer() {
           </Container>
           
           <Container className='linkCont'>
-          <Link to='armory' className='link'><h3>Armory</h3></Link>
+          <Link to='/' className='link'><h3>Armory</h3></Link>
           <Link to='cart' className='link'><h3>Cart</h3></Link>
           { label === 'admin' &&  (<Link to='itemCreation' className='link'><h3>Create Item</h3></Link>)}
           <Link to='profile' className='link'>

@@ -1,5 +1,5 @@
 import {Account, Avatars, Databases, ID, Client, Query} from 'appwrite';
-import { useAuth } from '../src/store';
+import { useAuth, useItems } from '../src/store';
 
 
 
@@ -107,9 +107,66 @@ export const getCurrentUser = async () => {
 
 export const checkForUser = async () => {
     const user = await getCurrentUser();
+    const accountGet = await account.get()
         // Set username using useAuth
         useAuth.setState({
             username: user.username,
+            avatar: user.avatar,
+            email: user.email,
+            label: accountGet.labels[0],
+            userId: user.$id
         });
+        return accountGet
 }
 
+
+export const getAllItems = async () => {
+    try {
+        const currentItems = await databases.listDocuments(
+            databaseId,
+            itemCollectionId,
+            []
+        )
+        if (!currentItems) throw Error;
+        
+        useItems.setState({
+            items: [...currentItems.documents.reverse()]
+        })
+        return currentItems;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const deleteItem = async (itemId) => {
+    try {
+        const item = await databases.deleteDocument(
+            databaseId,
+            itemCollectionId,
+            itemId
+        )
+        return item
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const createNewItem = async (name, image, price, chamber, quantity, userId, category) => {
+    const newItem = await databases.createDocument(
+        databaseId,
+        itemCollectionId, 
+        ID.unique(),
+        {
+            name,
+            image,
+            price,
+            chamber,
+            quantity,
+            users: userId, 
+            category
+        }
+    )
+
+    return newItem;
+}

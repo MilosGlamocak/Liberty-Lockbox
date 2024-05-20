@@ -1,0 +1,21 @@
+.itemCreationCont {
+    background-color: black;
+    max-width: 100% !important;
+    height: 100vh;  
+    color: white;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.inputLabelSelect {
+    color: white !important;
+    text-align: center !important;
+
+}
+
+.select {
+    color: white !important;
+}

@@ -12,9 +12,17 @@ import {create} from 'zustand';
 export const useAuth = create((set) => ({
     sessionId: null,
     username: null,
-    setSessionId: (sessionId) => set({ sessionId }),
-    setUsername: (username) => set({ username }),
-    clearAuthData: () => set({ sessionId: null, username: null }),
+    avatar: null,
+    email: null,
+    label: null,
+    userId: null,
+    clearAuthData: () => set({ sessionId: null, username: null, avatar: null, email: null, label: null, userId }),
+}));
+
+
+export const useItems = create((set) => ({
+    items: [],
+    clearItemsData: () => set({ items: [] }),
 }));
 
 

@@ -22,8 +22,20 @@ export const useAuth = create((set) => ({
 
 export const useItems = create((set) => ({
     items: [],
-    cartItems: [],
-    clearCartItems: () => set({ cartItems: [] }),
+    cartItems: JSON.parse(localStorage.getItem('cartItems')) || [],
+    addCartItem: (item) => {
+        set((state) => {
+            const updatedCartItems = [...state.cartItems, item];
+            localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+            return { cartItems: updatedCartItems };
+        });
+    },
+    clearCartItems: () => {
+        set(() => {
+            localStorage.setItem('cartItems', JSON.stringify([]));
+            return { cartItems: [] };
+        });
+    },
 }));
 
 

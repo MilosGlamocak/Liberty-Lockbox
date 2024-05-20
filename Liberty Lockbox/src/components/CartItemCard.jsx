@@ -6,26 +6,23 @@ import { useAuth, useItems } from '../store'
 import { deleteItem, getAllItems } from '../../lib/appwrite'
 import LoadingAnimation from './LoadingAnimation'
 
-function ItemCard({name, chamber, price, quantity, image, itemId, publisher}) {
+function CartItemCard({name, chamber, price, quantity, image, itemId, publisher}) {
 
   const { cartItems, addCartItem, clearCartItems } = useItems();
 
   const [loading, setLoading] = useState(false)
 
   const handleDeleteItem = () => {
-    
-    setLoading(true)
-    deleteItem(itemId).then(() => {
-      getAllItems().then(() => setLoading(false))
-    })
+     
   }
 
   const handleAddItem = () => {
-    const newItem = { name, chamber, price, image, itemId, publisher};
-    addCartItem(newItem);
+    
 };
 
 const {label} = useAuth((state) => state)
+
+const units = 15
 
   return (
     <Container className='itemCardCont'>
@@ -35,21 +32,20 @@ const {label} = useAuth((state) => state)
                 <h2 className='cardName'>{name}</h2>
                 <Container className='cardInfoCont'> <p className='cardInfo'>Chamber: </p><p className='cardInfoBold'>{chamber}</p></Container>
                 <Container className='cardInfoCont'><p className='cardInfo'>Price per Unit:</p><p className='cardInfoBold'>${price}</p></Container>
-                <Container className='cardInfoCont'><p className='cardInfo'>In Stock: </p><p className='cardInfoBold'>{quantity}</p></Container>
-                <Container className='cardInfoCont'><p className='cardInfo'>Added by: </p><p className='cardInfoBold'>{publisher}</p></Container>  
+                <Container className='cardInfoCont'><p className='cardInfo'>Total Price:</p><p className='cardInfoBold'>${price * units}</p></Container> 
             </Container>
         </Container> 
         <Container className='cardContRight'>
             {label === 'admin' && (
               <>
-              <CustomButton text={loading ? <CircularProgress style={{color: 'white', scale: '0.5'}} /> : 'Delete item'} border='1px solid #520909' onClick={handleDeleteItem}/>
+              <CustomButton text={loading ? <CircularProgress style={{color: 'white', scale: '0.5'}} /> : 'Remove'} border='1px solid #520909' onClick={handleDeleteItem}/>
               </>      
             )}
-            <p>Units: 1</p>
-            <CustomButton text='Add to Cart' border='1px solid #365F22' onClick={handleAddItem}/>
+            <p>Units: {units}</p>
+            <CustomButton text='Proceed to Checkout' border='1px solid #365F22' backgroundColor='#365F22' height='3rem' onClick={handleAddItem}/>
         </Container>
     </Container>
   )
 }
 
-export default ItemCard
+export default CartItemCard
